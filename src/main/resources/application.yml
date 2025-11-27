@@ -1,10 +1,10 @@
 spring:
   application.name: employee-profile
   datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/postgres}
     driver-class-name: org.postgresql.Driver
-    username: postgres
-    password: test
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -17,5 +17,5 @@ spring:
 
 security:
   jwt:
-    secret: "N2Y1MjJiNjItYzMwOS00YzE5LTk1MzMtMjBiMTNlMWRjNmE1YmQ5YWYzMTI="  # Example Base64 secret
+    secret: ${JWT_SECRET}
     validity-in-ms: 3600000
