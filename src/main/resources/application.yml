@@ -1,0 +1,21 @@
+spring:
+  application.name: employee-profile
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: test
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+security:
+  jwt:
+    secret: "N2Y1MjJiNjItYzMwOS00YzE5LTk1MzMtMjBiMTNlMWRjNmE1YmQ5YWYzMTI="  # Example Base64 secret
+    validity-in-ms: 3600000
